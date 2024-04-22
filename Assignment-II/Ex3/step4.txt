@@ -1,0 +1,5 @@
+Number of Threads, Average Time, Standard Deviation
+1, 0.032539, 0.000087
+32, 0.011262, 0.000988
+64, 0.006144, 0.000599
+128, 0.003516, 0.000898

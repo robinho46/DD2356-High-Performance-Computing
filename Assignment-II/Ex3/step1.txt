@@ -1,0 +1,12 @@
+Trial 0: Sum = 5000335.260518, Time = 0.009915 seconds
+Trial 1: Sum = 5000335.260518, Time = 0.009890 seconds
+Trial 2: Sum = 5000335.260518, Time = 0.010001 seconds
+Trial 3: Sum = 5000335.260518, Time = 0.010003 seconds
+Trial 4: Sum = 5000335.260518, Time = 0.009971 seconds
+Trial 5: Sum = 5000335.260518, Time = 0.009900 seconds
+Trial 6: Sum = 5000335.260518, Time = 0.009809 seconds
+Trial 7: Sum = 5000335.260518, Time = 0.009741 seconds
+Trial 8: Sum = 5000335.260518, Time = 0.009780 seconds
+Trial 9: Sum = 5000335.260518, Time = 0.010252 seconds
+Average Time = 0.009926 seconds
+Standard Deviation = 0.000138 seconds
