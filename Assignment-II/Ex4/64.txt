@@ -1,0 +1,15 @@
+DFTW calculation with N = 10000 
+DFTW computation in 0.366448 seconds
+Xre[0] = 10000.000000 
+DFTW calculation with N = 10000 
+DFTW computation in 0.329318 seconds
+Xre[0] = 10000.000000 
+DFTW calculation with N = 10000 
+DFTW computation in 0.334394 seconds
+Xre[0] = 10000.000000 
+DFTW calculation with N = 10000 
+DFTW computation in 0.324725 seconds
+Xre[0] = 10000.000000 
+DFTW calculation with N = 10000 
+DFTW computation in 0.361970 seconds
+Xre[0] = 10000.000000 
