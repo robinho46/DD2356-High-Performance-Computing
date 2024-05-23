@@ -13,4 +13,7 @@ This repository contains assignments 2 and 3 for the course **DD2356 - Methods i
 - [Link to Assignment 2](https://github.com/robinho46/DD2356/tree/main/Assignment-II)
 
 ### Assignment 3
-- [Link to Assignment 3](https://github.com/robinho46/DD2356/tree/main/Assignment-III)
+- [Link to Assignment 3](https://github.com/robinho46/DD2356/tree/main/Asignment-III)
+
+### Project
+- [Link to Project]((https://github.com/robinho46/DD2356/tree/main/Project)
