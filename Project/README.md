@@ -1,5 +1,6 @@
 # The Double-slit Experiment
-						![Double-slit Experiment Visualization](https://github.com/robinho46/DD2356/blob/main/Project/images/last_frame.png)
+![Double-slit Experiment Visualization](https://github.com/robinho46/DD2356/blob/main/Project/images/last_frame.png)
+
 This repository contains four versions, two serial codes one for SFML to visualize the double-slit experiment on your local computer and one to be executed on Dardel. OpenMP and MPI has also their code versions.
 
 # Dependencies
