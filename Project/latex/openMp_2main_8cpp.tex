@@ -1,0 +1,141 @@
+\doxysection{open\+Mp/main.cpp File Reference}
+\hypertarget{openMp_2main_8cpp}{}\label{openMp_2main_8cpp}\index{openMp/main.cpp@{openMp/main.cpp}}
+
+
+Solves a partial differential equation using a finite difference method.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$omp.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{openMp_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{openMp_2main_8cpp_ae9c326a66f69a30b9a6998a1526fe79f}{initialize\+Grid}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&U, std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&mask, std\+::vector$<$ double $>$ \&xlin)
+\begin{DoxyCompactList}\small\item\em Initializes the grid and boundary conditions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{openMp_2main_8cpp_a46ba061656ca9ce66ba95411519b951a}{calculate\+Laplacian}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&U, std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&Unew, const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&mask, double fac)
+\begin{DoxyCompactList}\small\item\em Calculates the Laplacian of the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{openMp_2main_8cpp_a8a09ce2f758274160f14ed788bbaaa9d}{apply\+Boundary\+Conditions}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&U, const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&mask, double t, const std\+::vector$<$ double $>$ \&xlin)
+\begin{DoxyCompactList}\small\item\em Applies boundary conditions to the grid. \end{DoxyCompactList}\item 
+\Hypertarget{openMp_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{openMp_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{openMp_2main_8cpp_ab2b6b0c222cd1ce70d6a831f57241e59}{N}} = 256
+\item 
+const double \mbox{\hyperlink{openMp_2main_8cpp_a8930a214a3f852236473306f3b81f7e9}{boxsize}} = 1.\+0
+\item 
+const double \mbox{\hyperlink{openMp_2main_8cpp_a8fc6defe4e499b1b9b9c275689e44352}{c}} = 1.\+0
+\item 
+const double \mbox{\hyperlink{openMp_2main_8cpp_ae9719a4a5d0f0fef956b69adcc5937c2}{t\+End}} = 2.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solves a partial differential equation using a finite difference method. 
+
+This program solves a partial differential equation using a finite difference method. It initializes a grid, applies boundary conditions, and updates the Laplacian iteratively. The solution is obtained for a given time interval. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{openMp_2main_8cpp_a8a09ce2f758274160f14ed788bbaaa9d}\label{openMp_2main_8cpp_a8a09ce2f758274160f14ed788bbaaa9d} 
+\index{main.cpp@{main.cpp}!applyBoundaryConditions@{applyBoundaryConditions}}
+\index{applyBoundaryConditions@{applyBoundaryConditions}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{applyBoundaryConditions()}{applyBoundaryConditions()}}
+{\footnotesize\ttfamily void apply\+Boundary\+Conditions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{U,  }\item[{const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{mask,  }\item[{double}]{t,  }\item[{const std\+::vector$<$ double $>$ \&}]{xlin }\end{DoxyParamCaption})}
+
+
+
+Applies boundary conditions to the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U} & Grid values. \\
+\hline
+{\em mask} & Grid mask. \\
+\hline
+{\em t} & Current time. \\
+\hline
+{\em xlin} & Vector storing the spatial coordinates. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{openMp_2main_8cpp_a46ba061656ca9ce66ba95411519b951a}\label{openMp_2main_8cpp_a46ba061656ca9ce66ba95411519b951a} 
+\index{main.cpp@{main.cpp}!calculateLaplacian@{calculateLaplacian}}
+\index{calculateLaplacian@{calculateLaplacian}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{calculateLaplacian()}{calculateLaplacian()}}
+{\footnotesize\ttfamily void calculate\+Laplacian (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{U,  }\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{Unew,  }\item[{const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{mask,  }\item[{double}]{fac }\end{DoxyParamCaption})}
+
+
+
+Calculates the Laplacian of the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U} & Current grid values. \\
+\hline
+{\em Unew} & New grid values after Laplacian calculation. \\
+\hline
+{\em mask} & Grid mask. \\
+\hline
+{\em fac} & Factor used in the numerical approximation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{openMp_2main_8cpp_ae9c326a66f69a30b9a6998a1526fe79f}\label{openMp_2main_8cpp_ae9c326a66f69a30b9a6998a1526fe79f} 
+\index{main.cpp@{main.cpp}!initializeGrid@{initializeGrid}}
+\index{initializeGrid@{initializeGrid}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initializeGrid()}{initializeGrid()}}
+{\footnotesize\ttfamily void initialize\+Grid (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{U,  }\item[{std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{mask,  }\item[{std\+::vector$<$ double $>$ \&}]{xlin }\end{DoxyParamCaption})}
+
+
+
+Initializes the grid and boundary conditions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U} & Vector of vectors representing the grid values. \\
+\hline
+{\em mask} & Vector of vectors representing the grid mask. \\
+\hline
+{\em xlin} & Vector storing the spatial coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{openMp_2main_8cpp_a8930a214a3f852236473306f3b81f7e9}\label{openMp_2main_8cpp_a8930a214a3f852236473306f3b81f7e9} 
+\index{main.cpp@{main.cpp}!boxsize@{boxsize}}
+\index{boxsize@{boxsize}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{boxsize}{boxsize}}
+{\footnotesize\ttfamily const double boxsize = 1.\+0}
+
+Size of the computational domain \Hypertarget{openMp_2main_8cpp_a8fc6defe4e499b1b9b9c275689e44352}\label{openMp_2main_8cpp_a8fc6defe4e499b1b9b9c275689e44352} 
+\index{main.cpp@{main.cpp}!c@{c}}
+\index{c@{c}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily const double c = 1.\+0}
+
+Speed of propagation \Hypertarget{openMp_2main_8cpp_ab2b6b0c222cd1ce70d6a831f57241e59}\label{openMp_2main_8cpp_ab2b6b0c222cd1ce70d6a831f57241e59} 
+\index{main.cpp@{main.cpp}!N@{N}}
+\index{N@{N}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily const int N = 256}
+
+Grid size \Hypertarget{openMp_2main_8cpp_ae9719a4a5d0f0fef956b69adcc5937c2}\label{openMp_2main_8cpp_ae9719a4a5d0f0fef956b69adcc5937c2} 
+\index{main.cpp@{main.cpp}!tEnd@{tEnd}}
+\index{tEnd@{tEnd}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{tEnd}{tEnd}}
+{\footnotesize\ttfamily const double t\+End = 2.\+0}
+
+End time of simulation 

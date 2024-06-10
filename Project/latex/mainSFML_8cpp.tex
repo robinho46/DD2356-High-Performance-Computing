@@ -1,0 +1,173 @@
+\doxysection{serial/main\+SFML.cpp File Reference}
+\hypertarget{mainSFML_8cpp}{}\label{mainSFML_8cpp}\index{serial/mainSFML.cpp@{serial/mainSFML.cpp}}
+
+
+Solves the wave equation using finite difference method with visualization using SFML.  
+
+
+{\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+System/\+Sleep.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+Include dependency graph for main\+SFML.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mainSFML_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mainSFML_8cpp_ae9c326a66f69a30b9a6998a1526fe79f}{initialize\+Grid}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&U, std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&mask, std\+::vector$<$ double $>$ \&xlin)
+\begin{DoxyCompactList}\small\item\em Initializes the grid and sets boundary conditions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mainSFML_8cpp_a8a09ce2f758274160f14ed788bbaaa9d}{apply\+Boundary\+Conditions}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&U, const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&mask, double t, const std\+::vector$<$ double $>$ \&xlin)
+\begin{DoxyCompactList}\small\item\em Applies boundary conditions to the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mainSFML_8cpp_acd29431e0eea56545ca2f07b3d717f3c}{update\+Laplacian}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&U, std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&Unew, const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&mask, double fac)
+\begin{DoxyCompactList}\small\item\em Updates the Laplacian of the grid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mainSFML_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{mainSFML_8cpp_ab2b6b0c222cd1ce70d6a831f57241e59}{N}} = 256
+\item 
+const double \mbox{\hyperlink{mainSFML_8cpp_a8930a214a3f852236473306f3b81f7e9}{boxsize}} = 1.\+0
+\item 
+const double \mbox{\hyperlink{mainSFML_8cpp_a8fc6defe4e499b1b9b9c275689e44352}{c}} = 1.\+0
+\item 
+const double \mbox{\hyperlink{mainSFML_8cpp_ae9719a4a5d0f0fef956b69adcc5937c2}{t\+End}} = 2.\+0
+\item 
+const bool \mbox{\hyperlink{mainSFML_8cpp_a463e69e1158e0fc56292cc9d42a54650}{plot\+Real\+Time}} = true
+\item 
+const int \mbox{\hyperlink{mainSFML_8cpp_ab56e96027e859f37108b475cac85e3eb}{window\+Size}} = 800
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solves the wave equation using finite difference method with visualization using SFML. 
+
+This program solves the wave equation using a finite difference method with visualization using SFML. The grid is initialized with specific boundary conditions, and the wave equation is iteratively solved. The resulting wave pattern is visualized in real-\/time using SFML. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mainSFML_8cpp_a8a09ce2f758274160f14ed788bbaaa9d}\label{mainSFML_8cpp_a8a09ce2f758274160f14ed788bbaaa9d} 
+\index{mainSFML.cpp@{mainSFML.cpp}!applyBoundaryConditions@{applyBoundaryConditions}}
+\index{applyBoundaryConditions@{applyBoundaryConditions}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{applyBoundaryConditions()}{applyBoundaryConditions()}}
+{\footnotesize\ttfamily void apply\+Boundary\+Conditions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{U,  }\item[{const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{mask,  }\item[{double}]{t,  }\item[{const std\+::vector$<$ double $>$ \&}]{xlin }\end{DoxyParamCaption})}
+
+
+
+Applies boundary conditions to the grid. 
+
+This function applies boundary conditions to the grid based on the mask and time parameter. 
+\begin{DoxyParams}{Parameters}
+{\em U} & Grid values to apply boundary conditions \\
+\hline
+{\em mask} & Boundary mask indicating boundary points \\
+\hline
+{\em t} & Time parameter \\
+\hline
+{\em xlin} & Array of spatial coordinates \\
+\hline
+\end{DoxyParams}
+\Hypertarget{mainSFML_8cpp_ae9c326a66f69a30b9a6998a1526fe79f}\label{mainSFML_8cpp_ae9c326a66f69a30b9a6998a1526fe79f} 
+\index{mainSFML.cpp@{mainSFML.cpp}!initializeGrid@{initializeGrid}}
+\index{initializeGrid@{initializeGrid}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{initializeGrid()}{initializeGrid()}}
+{\footnotesize\ttfamily void initialize\+Grid (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{U,  }\item[{std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{mask,  }\item[{std\+::vector$<$ double $>$ \&}]{xlin }\end{DoxyParamCaption})}
+
+
+
+Initializes the grid and sets boundary conditions. 
+
+Initializes the grid and boundary conditions.
+
+This function initializes the grid and sets boundary conditions based on the mask. 
+\begin{DoxyParams}{Parameters}
+{\em U} & Grid values to initialize \\
+\hline
+{\em mask} & Boundary mask indicating boundary points \\
+\hline
+{\em xlin} & Array of spatial coordinates \\
+\hline
+\end{DoxyParams}
+\Hypertarget{mainSFML_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{mainSFML_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{mainSFML.cpp@{mainSFML.cpp}!main@{main}}
+\index{main@{main}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} Spatial step size
+
+\texorpdfstring{$<$}{<} Temporal step size
+
+\texorpdfstring{$<$}{<} Factor for numerical approximation
+
+\texorpdfstring{$<$}{<} Grid values
+
+\texorpdfstring{$<$}{<} Boundary mask\Hypertarget{mainSFML_8cpp_acd29431e0eea56545ca2f07b3d717f3c}\label{mainSFML_8cpp_acd29431e0eea56545ca2f07b3d717f3c} 
+\index{mainSFML.cpp@{mainSFML.cpp}!updateLaplacian@{updateLaplacian}}
+\index{updateLaplacian@{updateLaplacian}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{updateLaplacian()}{updateLaplacian()}}
+{\footnotesize\ttfamily void update\+Laplacian (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{U,  }\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{Unew,  }\item[{const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{mask,  }\item[{double}]{fac }\end{DoxyParamCaption})}
+
+
+
+Updates the Laplacian of the grid. 
+
+This function calculates the Laplacian of the grid and updates it using finite difference method. 
+\begin{DoxyParams}{Parameters}
+{\em U} & Current grid values \\
+\hline
+{\em Unew} & Updated grid values after Laplacian calculation \\
+\hline
+{\em mask} & Boundary mask indicating boundary points \\
+\hline
+{\em fac} & Scaling factor \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{mainSFML_8cpp_a8930a214a3f852236473306f3b81f7e9}\label{mainSFML_8cpp_a8930a214a3f852236473306f3b81f7e9} 
+\index{mainSFML.cpp@{mainSFML.cpp}!boxsize@{boxsize}}
+\index{boxsize@{boxsize}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{boxsize}{boxsize}}
+{\footnotesize\ttfamily const double boxsize = 1.\+0}
+
+Size of the computational domain \Hypertarget{mainSFML_8cpp_a8fc6defe4e499b1b9b9c275689e44352}\label{mainSFML_8cpp_a8fc6defe4e499b1b9b9c275689e44352} 
+\index{mainSFML.cpp@{mainSFML.cpp}!c@{c}}
+\index{c@{c}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily const double c = 1.\+0}
+
+Speed of propagation \Hypertarget{mainSFML_8cpp_ab2b6b0c222cd1ce70d6a831f57241e59}\label{mainSFML_8cpp_ab2b6b0c222cd1ce70d6a831f57241e59} 
+\index{mainSFML.cpp@{mainSFML.cpp}!N@{N}}
+\index{N@{N}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily const int N = 256}
+
+Grid size \Hypertarget{mainSFML_8cpp_a463e69e1158e0fc56292cc9d42a54650}\label{mainSFML_8cpp_a463e69e1158e0fc56292cc9d42a54650} 
+\index{mainSFML.cpp@{mainSFML.cpp}!plotRealTime@{plotRealTime}}
+\index{plotRealTime@{plotRealTime}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{plotRealTime}{plotRealTime}}
+{\footnotesize\ttfamily const bool plot\+Real\+Time = true}
+
+Flag to enable real-\/time plotting \Hypertarget{mainSFML_8cpp_ae9719a4a5d0f0fef956b69adcc5937c2}\label{mainSFML_8cpp_ae9719a4a5d0f0fef956b69adcc5937c2} 
+\index{mainSFML.cpp@{mainSFML.cpp}!tEnd@{tEnd}}
+\index{tEnd@{tEnd}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{tEnd}{tEnd}}
+{\footnotesize\ttfamily const double t\+End = 2.\+0}
+
+End time of simulation \Hypertarget{mainSFML_8cpp_ab56e96027e859f37108b475cac85e3eb}\label{mainSFML_8cpp_ab56e96027e859f37108b475cac85e3eb} 
+\index{mainSFML.cpp@{mainSFML.cpp}!windowSize@{windowSize}}
+\index{windowSize@{windowSize}!mainSFML.cpp@{mainSFML.cpp}}
+\doxysubsubsection{\texorpdfstring{windowSize}{windowSize}}
+{\footnotesize\ttfamily const int window\+Size = 800}
+
+Size of the SFML window 
