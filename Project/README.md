@@ -24,7 +24,7 @@ sudo apt install libsfml-dev
 ### Compiling and Running
 ```bash 
 cd DD2356/Project/serial
-g++ -o waveEq mainSFML.cpp -lsfml-graphics -lsfml-window -lsfml-system`
+g++ -o waveEq mainSFML.cpp -lsfml-graphics -lsfml-window -lsfml-system
 ./waveEq
 ```
 
@@ -66,7 +66,9 @@ cd DD2356/Project/openMp/
 CC  main.cpp -o main.out
 ```
 # Documentation
+To generate documentation follow these steps:
 ```bash
 sudo apt-get install doxygen
 cd DD2356/Project/
-doxygen Doxyfile```
+doxygen Doxyfile
+```
